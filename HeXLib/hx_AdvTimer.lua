@@ -168,57 +168,9 @@ function _R.Entity:timer(Delay, Func)
 	end)
 end
 
---[[
-Examples of PlayerTimers:
-
-ply:timer(2, function()
-	--Runs after 2 seconds, checks if player is valid so no need to do it within the timer.
-end)
-
-local TID = ply:TimerCreate("Test", 1, 0, function(TID)
-	--Works just like timer.Create, but only runs while the player is valid. Again no need to check.
-	--Passes timerID to the func, and returns timerID in TimerCreate, which can be used with timer.Destroy(TID)
-end)
-]]
 
 
 
-
-
---Example of AdvancedTimers
-
-local Now = RealTime()
-
-local function End(self, Total)
-	print("\n! end: ", Total, -(Now - RealTime()) )
-	
-	self:Kill()
-end
-
-Fuck = false
-local function Tick(self, UpTo, Rem, Tot)
-	print("! Tick: ", UpTo, Rem, Tot)
-	
-	
-	if not Fuck and UpTo == 0.2 then
-		Fuck = true
-		print("! stop")
-		
-		
-		timer.Simple(1, function()
-			print("! restart")
-			
-			--self:AddTime(1)
-			--self:SetTime(3)
-			--self:Reset()
-			
-			self:Start()
-		end)
-		
-		return TIMER_STOP
-	end
-end
-local Timer = timer.Add("Poop", 0.5, End,Tick)
 
 
 

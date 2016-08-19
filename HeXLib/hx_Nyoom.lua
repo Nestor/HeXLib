@@ -1,11 +1,5 @@
 --[[
 	---=== Nyoom!, by HeX ===---
-	
-	Example:
-	local This = "Hello. I cheat here, this is not fun, please ban me now. Help!"
-	print( This:Nyoom() )
-	
-	--Output: Nyoom. I nyoom nyoom, this nyoom nyoom nyoom, I nyoom nyoom nyoom. Help!
 ]]
 
 

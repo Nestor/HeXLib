@@ -91,36 +91,6 @@ function benchmark:__lt(Bench)		return Bench:Read() < self:Read()									end
 function benchmark:__le(Bench)		return Bench:Read() <= self:Read()									end
 
 
-------------------------------------------------------------
-do return end
-
-
-local Bench = benchmark.Init("Test")	--Create new Bench object
-
-Bench:Open() 							--Start counting
-	for i=0, 100000000 do end 			--Do something to measure here
-Bench:Close()							--Stop counting
-
-
-local Bench2 = benchmark.Init("poo")
-Bench2:Open()
-	for i=0, 1000000 do end
-Bench2:Close()
-
-
-
-//Prints Bench objects given in quickest order
-benchmark.Crunch( {Bench, Bench2} )
-
-
-//Get fastest, slowest and sorted table of Bench objects
-local Fast,Slow,Sorted = benchmark.GetFastest( {Bench, Bench2} )
-
-print("! Fastest: ", Fast)
-print("! Slowest: ", Slow)
-
-
-
 
 
 

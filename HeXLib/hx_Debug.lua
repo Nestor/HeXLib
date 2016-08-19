@@ -1,23 +1,6 @@
 --[[
 	=== Nice debug traces ===
-	Makes debug.Trace() more readable
-	
-	Default: 
-	Trace: 
-		1: Line 32	"Trace"	lua/includes/extensions/debug.lua
-		2: Line 33	"Two"	lua/tft.lua
-		3: Line 40	"nil"	lua/tft.lua
-		4: Line 69	"Run"	lua/includes/modules/concommand.lua
-		5: Line 43	"nil"	lua/tft.lua
-	
-	Mine: 
-	[Trace] Two - [lua/tft.lua:27-37]
-	  2. Two - lua/tft.lua:29
-	   3. unknown - lua/tft.lua:40
-		4. Run - lua/includes/modules/concommand.lua:69
-		 5. unknown - lua/tft.lua:43
 ]]
-
 
 
 function debug.Trace(Res, is_err)
