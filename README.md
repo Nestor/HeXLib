@@ -141,7 +141,7 @@ Mine:
 
 ## File
 
-``lua
+```lua
 --Better file functions
 
 HEX.file.CreateDir	--Makes the whole tree
