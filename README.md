@@ -204,14 +204,35 @@ print( This:Nyoom() )
 ```lua
 --A way to get the next entry in a table, great for delayed checking
 
---See the file for more uses
+--[[
+See the file for more uses
+
+local Selector = selector.Init(Tab, OnSelect, start_now, use_orig)
+
+--Selector has the following methods:
+
+Select(optional_delay) 	--Selects the next entry and calls OnSelect
+Add(entry) 				--Adds the entry to the current table, at any time
+Clear()					--Clear the selector table, but keeps the object
+Remove(keep_self)		--Remove the selector & stops it running
+IsValid()				--Obvious
+GetTable()				--Returns the table you Init'd the selector with
+UpTo()					--How many entries have been Select()'d
+Size()					--Number of entries in the table
+Left()					--Number of entries left
+Done()					--True if the selector has finished selecting all entries
+
+The Selector object can also be print()'d and tostring()'d, it will return how many
+it has done, out of how many total
+
+]]
+
 
 //Send
-local function OnSend(self, Idx,This)
-	print("! OnSend: ", self, This)
+local function OnSelect(self, Idx,This)
+	print("! OnSelect: ", self, This)
 end
-local OutBuff = selector.Init( {}, OnSend)
-
+local OutBuff = selector.Init( {}, OnSelect)
 
 OutBuff:Add("Test")
 OutBuff:Add("A")
@@ -222,6 +243,24 @@ OutBuff:Add("EIGHT")
 timer.Create("Test", 0.5, 0, function()
 	OutBuff:Select()
 end)
+
+
+
+
+
+//Other use, initiate with a table
+local Code = {
+	"A",
+	"B",
+	"C",
+	"D",
+}
+local function OnSelect(self, Idx,This)
+	print("! Test: ", self, This)
+	
+	self:Select(1) --Select next entry after 1 second
+end
+local Send = selector.Init(Code, OnSelect, true) --True for start now, no need to Select()
 ```
 
 
