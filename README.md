@@ -1,4 +1,4 @@
-=== HeXLib, by HeX - Make it easy! ===
+=== HeX's Library - Make it easy! ===
 
 A whole load of useful functions for GMod.
 
