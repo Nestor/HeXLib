@@ -2,10 +2,8 @@
 
 A whole load of useful functions for GMod.
 
-## How do you set this up?
-
-1. Copy the HeXLib folder to the lua folder on your server.
-2. Copy sh_HeXLib.lua to the lua/autorun folder on your server.
+## How do you set up?
+Download the Zip from GibHub > Extract to the server's ```/addons``` folder & restart
 
 
 Timer

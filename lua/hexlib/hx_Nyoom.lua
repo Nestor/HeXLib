@@ -3,8 +3,6 @@
 ]]
 
 
-
-
 local Def_Skip = {
 	["i'm"] 		= 1,
 	["im"] 			= 1,

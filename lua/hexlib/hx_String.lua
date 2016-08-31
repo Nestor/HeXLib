@@ -137,7 +137,24 @@ end
 
 
 
+function string.NiceTimeEx(Secs)
+	if not Secs then Secs = 0 end
+	if Secs < 0 then Secs = -Secs end
+	
+	local hours 	= math.floor(Secs / 3600)
+	local minutes	= math.floor( (Secs / 60) % 60)
+	Secs 			= math.floor(Secs % 60)
+	
+	return (
+		(hours >= 1 	and "0"..hours..":" or "")..
+		(minutes <= 9 	and "0"..minutes 	or minutes)..":"..
+		(Secs <= 9 		and "0"..Secs 		or Secs)
+	)
+end
 
+function string.NiceNum(num)
+	return tostring(num):reverse():gsub("(...)", "%1,"):gsub(",$", ""):reverse()
+end
 
 
 
