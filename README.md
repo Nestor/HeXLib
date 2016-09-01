@@ -2,11 +2,11 @@
 
 A whole load of useful functions for GMod.
 
-## How do you set up?
+### How to set up:
 Download the Zip from GibHub > Extract to the server's ```/addons``` folder & restart
 
 
-Timer
+## Timer
 
 ```lua
 ---PlayerTimers

@@ -136,7 +136,7 @@ function Player:URL()
 end
 
 function Player:Info(show_url)
-	return self.AntiHaxName.." ("..self:SteamID()..")"..(show_url and " "..self:URL() or "")
+	return self:Nick().." ("..self:SteamID()..")"..(show_url and " "..self:URL() or "")
 end
 
 function Player:TeamColor()
