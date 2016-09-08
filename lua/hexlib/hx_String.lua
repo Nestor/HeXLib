@@ -156,43 +156,41 @@ function string.NiceNum(num)
 	return tostring(num):reverse():gsub("(...)", "%1,"):gsub(",$", ""):reverse()
 end
 
-local function toBits( num )
-        local t = {}
-        while num > 0 do
-                rest = math.fmod( num, 2 )
-                t[ #t + 1 ] = rest
-                num = ( num-rest ) / 2
-        end
-        return t
+local function toBits(num)
+    local t = {}
+    while num > 0 do
+        rest = math.fmod(num, 2)
+        t[ #t + 1 ] = rest
+        num = ( num-rest ) / 2
+    end
+    return t
 end
 
-local function makeEight( t )
-        return ( "0" ):rep( 8 - #t )..t
+local function makeEight(str)
+    return ( "0" ):rep( 8 - #str )..str
 end
 
-function string.ToBinary( txt2 )
-        local txt = ""
-        
-        for i=1, #txt2 do
-                txt = txt .. makeEight( table.concat( toBits( string.byte( txt2:sub( i, i ) ) ) ):reverse() )
-        end
-        
-        return txt
+function string.ToBinary( str )
+    local txt = ""
+
+    for i=1, #str do
+        txt = txt..makeEight( table.concat( toBits( string.byte( str:sub(i,i) ) ) ):reverse() )
+    end
+
+    return txt
 end
 
-function string.FromBinary( txt )
-        local txt2 = ""
-        local t = str:Split( "\n" )
-        
-        for k,v in pairs( t ) do
-                q = 1
-                for i=1, #v / 8 do
-                        txt2 = txt2..string.char( tonumber( v:sub( q, q + 7 ), 2 ) )
-                        q = q + 8
-                end
+function string.FromBinary(str)
+    local txt2 = ""
+    for k,v in pairs( str:Split("\n") ) do
+        local q = 1
+        for i=1, #v / 8 do
+            txt2 = txt2..string.char( tonumber( v:sub(q, q + 7), 2 ) )
+            q = q + 8
         end
-        
-        return txt2
+    end
+
+    return txt2
 end
 
 
